@@ -12,5 +12,5 @@ Students will be able to create study cards and group them. The app will be able
 * Eduardo Merino
 * Sara Ruiz
 * Dom Marquez
-* Itzel Corder &
+* Itzel Cordero &
 * David Cabello
