@@ -9,13 +9,6 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  flipped = false;
-
   ngOnInit() {
   }
-
-  flipIt() {
-    this.flipped = !this.flipped;
-  }
-
 }

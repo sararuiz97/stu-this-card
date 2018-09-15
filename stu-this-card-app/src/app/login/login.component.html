@@ -1,20 +1,19 @@
 
+<app-card>
+  <div front>
+    <h1> stu-this-card.</h1>
+  </div>
+  <div back>
+    <form>
+      <h3>First name:</h3>
+      <input type="text" name="firstname">
+      <br>
+      <h3>Last name:</h3>
+      <input type="text" name="lastname">
+    </form>
+  </div>
+</app-card>
 
-    <label>    
-        <div id="player" class="player" [class.voted]="flipped">
-            <div class="front">
-              <h1>stu - this - card</h1>
-              <!-- <br/> -->
-            </div>
-            <!-- --->
-            <div class="back">
-              Back
-            </div>
-        </div>
-    </label>
-    <button class="btn-primary button " ngbButton (click)="flipIt()">
-        Flip: {{ flipped }}
-      </button>
    
 
 
