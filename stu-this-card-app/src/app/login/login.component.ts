@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('login_card') loginCard: CardComponent;
+
+  constructor() {}
 
   ngOnInit() {
+  }
+
+  flipCard() {
+    this.loginCard.flipIt();
   }
 }

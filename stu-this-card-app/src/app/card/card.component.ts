@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
   flipped: boolean;
 
   constructor() {
-    this.flipped = true;
+    this.flipped = false;
   }
 
   ngOnInit() {
@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
 
   flipIt() {
     this.flipped = !this.flipped;
+    console.log('flipIt');
   }
 
 }
