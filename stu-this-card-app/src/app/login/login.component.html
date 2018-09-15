@@ -1,0 +1,22 @@
+
+
+    <label>    
+        <div id="player" class="player" [class.voted]="flipped">
+            <div class="front">
+              <h1>stu - this - card</h1>
+              <!-- <br/> -->
+            </div>
+            <!-- --->
+            <div class="back">
+              Back
+            </div>
+        </div>
+    </label>
+    <button class="btn-primary button " ngbButton (click)="flipIt()">
+        Flip: {{ flipped }}
+      </button>
+   
+
+
+
+ 

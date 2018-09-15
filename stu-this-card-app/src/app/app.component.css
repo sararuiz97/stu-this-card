@@ -1,0 +1,7 @@
+div {
+    background-color: #968f83;
+    background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
