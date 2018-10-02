@@ -1,4 +1,4 @@
-label {
+.flipped {
     -webkit-perspective: 800px;
     perspective: 800px;
     -webkit-transform-style: preserve-3d;
