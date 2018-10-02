@@ -1,0 +1,13 @@
+.navbar__desktop{
+  display: block;
+  @include media(small){
+    display: none;
+  }
+}
+
+.navbar__res{
+  display: none;
+  @include media(small){
+    display: block;
+  }
+}

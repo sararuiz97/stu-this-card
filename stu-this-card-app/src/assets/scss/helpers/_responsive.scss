@@ -1,0 +1,42 @@
+@mixin media($breakpoint...){
+
+	/* = Small phones
+	-----------------------------------------------------------------------------*/
+	@if index($breakpoint, xs){
+		@media (min-width: 0px) and (max-width: $screen-xs) {
+			@content;
+		}
+	}
+
+	/* =
+	-----------------------------------------------------------------------------*/
+	@if index($breakpoint, small){
+		@media (min-width: 0px) and (max-width: $screen-sm) {
+			@content;
+		}
+	}
+
+	/* =
+	-----------------------------------------------------------------------------*/
+	@if index($breakpoint, medium){
+		@media (min-width: $screen-sm+1) and (max-width: $screen-md) {
+			@content;
+		}
+	}
+
+	/* =
+	-----------------------------------------------------------------------------*/
+	@if index($breakpoint, large){
+		@media (min-width: $screen-md+1) and (max-width: $screen-lg) {
+			@content;
+		}
+	}
+
+	/* =
+	-----------------------------------------------------------------------------*/
+	@if index($breakpoint, full){
+		@media (min-width: $screen-lg+1) {
+			@content;
+		}
+	}
+}
