@@ -1,0 +1,28 @@
+.navbar ul li a{
+    text-decoration: none;
+    color: blue;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    margin-left: 40px;
+
+}
+.navbar ul{
+    display: flex;
+    
+}
+.navbar{
+
+}
+.nav__container {
+    position: relative;
+    height: 10vh;
+    width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
