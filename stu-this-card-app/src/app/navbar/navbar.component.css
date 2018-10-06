@@ -6,14 +6,9 @@
 .navbar ul li {
     list-style-type: none;
     margin-left: 40px;
-
 }
 .navbar ul{
     display: flex;
-    
-}
-.navbar{
-
 }
 .nav__container {
     position: relative;
@@ -22,7 +17,17 @@
     max-width: 75%;
     margin: 0 auto;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 10px 6px 29px;
+}
+
+.center-side {
+    font-size: 24px;
+    text-align: center;
+}
+
+.left-side {
+    display: flex;
 }
 
 
