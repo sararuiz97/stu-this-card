@@ -13,7 +13,6 @@ import { CardService } from './services/card/card.service';
 import { CollectionService } from './services/collection/collection.service';
 import { WebglDashboardComponent } from './webgl-dashboard/webgl-dashboard.component';
 
-
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -22,6 +21,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: '3d',
+    component: WebglDashboardComponent,
   },
   {
     path: '',
