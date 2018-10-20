@@ -12,6 +12,7 @@ import { UserService } from './services/user/user.service';
 import { CardService } from './services/card/card.service';
 import { CollectionService } from './services/collection/collection.service';
 import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dashboard.component';
+import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
     DashboardComponent,
     NavbarComponent,
     MainComponent,
-    WebglDashboardComponent
+    WebglDashboardComponent,
+    ThreeSceneComponent
   ],
   imports: [
     BrowserModule,
