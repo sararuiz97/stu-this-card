@@ -1,21 +1,25 @@
 <div class="container">
   <app-card #login_card>
     <div front>
-      <h1> stu-this-card.</h1>
-      <button class="btn-primary button " ngbButton (click)="flipCard()">
-        Login
-      </button>
+      <div class="text">
+          <h1> stu-this-card.</h1>
+          <button class="btn-primary button " ngbButton (click)="flipCard()">
+            Login
+          </button>
+      </div>
     </div>
     <div back>
-      <form>
-        <h3>First name:</h3>
-        <input type="text" name="firstname">
-        <br>
-        <h3>Last name:</h3>
-        <input type="text" name="lastname">
-        <br/>
-        <input type="submit" value="Submit">
-      </form>
+      <div class="text">
+        <form>
+          <h3>First name:</h3>
+          <input type="text" name="firstname">
+          <br>
+          <h3>Last name:</h3>
+          <input type="text" name="lastname">
+          <br/>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div>
   </app-card>
 </div>
