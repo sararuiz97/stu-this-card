@@ -32,6 +32,7 @@ Students will be able to create study cards and group them. The app will be able
 		}
 	}
 ]
+````
 
 ## Created by:
 * Eduardo Merino
