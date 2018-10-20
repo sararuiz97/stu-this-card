@@ -40,8 +40,7 @@ router.route('/update/:id').post((req,res) => {
       return next(new Error('Could not load document'));
     else{
       user.name = req.body.name;
-      user.description = req.body.description;
-      user.status = req.body.status;
+      user.email = req.body.email;
 
       user.save().then(user => {
         res.json('Update done');

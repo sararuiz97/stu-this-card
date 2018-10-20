@@ -3,12 +3,8 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 let User = new Schema({
-    name: {
-      type: String
-    },
-    description: {
-      type: String
-    }
+    name: String,
+    email: String
 });
 
 export default mongoose.model('User', User);

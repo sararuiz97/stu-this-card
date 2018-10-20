@@ -17,18 +17,18 @@ export class UserService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addUser(name, description){
+  addUser(name, email){
     const user = {
       name: name,
-      description: description,
+      email: email,
     };
     return this.http.post(`${this.uri}/add`, user);
   }
 
-  updateUser(id, name, description){
+  updateUser(id, name, email){
     const user = {
       name: name,
-      description: description
+      email: email
     };
     return this.http.post(`${this.uri}/update/${id}`, user);
   }

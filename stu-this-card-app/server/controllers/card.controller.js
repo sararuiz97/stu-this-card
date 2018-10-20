@@ -1,33 +1,33 @@
 import express from 'express';
-import Client from '../models/Client';
+import Card from '../models/Card';
 
 const router = express.Router();
 module.exports = router;
 
 
 router.route('/').get((req,res) => {
-  Client.find((err,clients) => {
+  Card.find((err,cards) => {
     if (err)
       console.log(err);
     else
-      res.json(clients);
+      res.json(cards);
   });
 });
 
 router.route('/:id').get((req,res) => {
-  Client.findById(req.params.id, (err,client) => {
+  Card.findById(req.params.id, (err,card) => {
     if (err)
       console.log(err);
     else{
-      res.json(client);
+      res.json(card);
     }
   });
 });
 
 router.route('/add').post((req,res) => {
-  let client = new Client(req.body);
-  client.save().then(client => {
-      res.status(200).json({'client': 'Added successfully'});
+  let card = new Card(req.body);
+  card.save().then(card => {
+      res.status(200).json({'card': 'Added successfully'});
     })
     .catch(err => {
       res.status(400).send('Failed to create a new record');
@@ -35,15 +35,14 @@ router.route('/add').post((req,res) => {
 });
 
 router.route('/update/:id').post((req,res) => {
-  Client.findById(req.params.id, (err, client) => {
-    if (!client)
+  Card.findById(req.params.id, (err, card) => {
+    if (!card)
       return next(new Error('Could not load document'));
     else{
-      client.name = req.body.name;
-      client.description = req.body.description;
-      client.status = req.body.status;
+      card.front = req.body.front;
+      card.back = req.body.back;
 
-      client.save().then(client => {
+      card.save().then(card => {
         res.json('Update done');
       }).catch(err => {
         res.status(400).send('Update failed');
@@ -54,7 +53,7 @@ router.route('/update/:id').post((req,res) => {
 });
 
 router.route('/delete/:id').get((req,res) => {
-  Client.findByIdAndRemove({_id: req.params.id}, (err,client) =>{
+  Card.findByIdAndRemove({_id: req.params.id}, (err,card) =>{
     if (err)
       res.json(err);
     else{
