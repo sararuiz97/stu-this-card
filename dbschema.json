@@ -1,0 +1,22 @@
+[
+	{
+		"collection": {
+			"name": "Colección",
+			"creator": U1
+			"id": "Col1",
+			"cards": [
+		 		{
+				"id": "C5",
+				"term": "History",
+				"definition": "Card",
+				"front": { "text": <<text>>, "media": <<FILE>> },
+				"back": { "text": <<text>>, "media": <<FILE>> }
+				}
+			],
+			"shared": [
+				{ "id": "U2" },
+				{ "id": "U3" }
+			],
+		}
+	}
+]
