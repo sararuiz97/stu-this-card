@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user/user.service';
 import { CardService } from './services/card/card.service';
 import { CollectionService } from './services/collection/collection.service';
-import { WebglDashboardComponent } from './webgl-dashboard/webgl-dashboard.component';
+import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dashboard.component';
 
 const routes: Routes = [
   {
