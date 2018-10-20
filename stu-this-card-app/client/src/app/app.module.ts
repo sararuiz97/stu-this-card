@@ -7,10 +7,11 @@ import { CardComponent } from './components/card/card.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './components/main/main.component';
-import { HttpClientModule } from "@angular/common/http";
-import { UserService } from "./services/user/user.service";
-import { CardService } from "./services/card/card.service";
-import { CollectionService } from "./services/collection/collection.service";
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './services/user/user.service';
+import { CardService } from './services/card/card.service';
+import { CollectionService } from './services/collection/collection.service';
+import { WebglDashboardComponent } from './webgl-dashboard/webgl-dashboard.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
     CardComponent,
     DashboardComponent,
     NavbarComponent,
-    MainComponent
+    MainComponent,
+    WebglDashboardComponent
   ],
   imports: [
     BrowserModule,
