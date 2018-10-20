@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { CardComponent } from './card/card.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MainComponent } from './main/main.component';
+import { LoginComponent } from './components/login/login.component';
+import { CardComponent } from './components/card/card.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   {
