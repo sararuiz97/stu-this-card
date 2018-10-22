@@ -59,7 +59,7 @@ export class EngineService {
   }
 
   addSphere() {
-    const geometry = new THREE.SphereGeometry( 1, 32, 32 );
+    const geometry = new THREE.SphereGeometry(1, 10, 10);
     const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
     material.wireframe = true;
     this.sphere = new THREE.Mesh(geometry, material);
@@ -68,7 +68,7 @@ export class EngineService {
   }
 
   addCone() {
-    const geometry = new THREE.ConeGeometry( 1, 1, 32);
+    const geometry = new THREE.ConeGeometry(1, 1, 6);
     const material = new THREE.MeshBasicMaterial( {color: 0xee42f4} );
     material.wireframe = true;
     this.cone = new THREE.Mesh(geometry, material );
@@ -94,11 +94,11 @@ export class EngineService {
     this.cube.rotation.x += 0.01;
     this.cube.rotation.y += 0.01;
 
-    this.cone.rotation.x -= 0.01;
+    this.cone.rotation.x += 0.01;
     this.cone.rotation.y += 0.01;
 
     this.sphere.rotation.x += 0.01;
-    this.sphere.rotation.y -= 0.01;
+    this.sphere.rotation.y += 0.01;
 
     this.renderer.render(this.scene, this.camera);
   }
