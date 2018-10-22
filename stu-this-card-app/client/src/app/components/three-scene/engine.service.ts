@@ -48,6 +48,7 @@ export class EngineService {
   addCube() {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    material.wireframe = true;
     this.cube = new THREE.Mesh( geometry, material );
     this.scene.add(this.cube);
   }
