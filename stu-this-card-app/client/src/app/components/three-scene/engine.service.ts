@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
+import { Material, Sphere } from 'three';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class EngineService {
   private windowy: number;
 
   private cube: THREE.Mesh;
+  private sphere: THREE.Mesh;
+  private cone: THREE.Mesh;
 
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
@@ -43,6 +46,8 @@ export class EngineService {
     this.scene.add(this.light);
 
     this.addCube();
+    this.addSphere();
+    this.addCone();
   }
 
   addCube() {
@@ -51,6 +56,24 @@ export class EngineService {
     material.wireframe = true;
     this.cube = new THREE.Mesh( geometry, material );
     this.scene.add(this.cube);
+  }
+
+  addSphere() {
+    const geometry = new THREE.SphereGeometry( 1, 32, 32 );
+    const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+    material.wireframe = true;
+    this.sphere = new THREE.Mesh(geometry, material);
+    this.sphere.position.y = 2;
+    this.scene.add(this.sphere);
+  }
+
+  addCone() {
+    const geometry = new THREE.ConeGeometry( 1, 1, 32);
+    const material = new THREE.MeshBasicMaterial( {color: 0xee42f4} );
+    material.wireframe = true;
+    this.cone = new THREE.Mesh(geometry, material );
+    this.cone.position.y = -2;
+    this.scene.add(this.cone);
   }
 
   animate(): void {
@@ -70,6 +93,13 @@ export class EngineService {
 
     this.cube.rotation.x += 0.01;
     this.cube.rotation.y += 0.01;
+
+    this.cone.rotation.x -= 0.01;
+    this.cone.rotation.y += 0.01;
+
+    this.sphere.rotation.x += 0.01;
+    this.sphere.rotation.y -= 0.01;
+
     this.renderer.render(this.scene, this.camera);
   }
 
