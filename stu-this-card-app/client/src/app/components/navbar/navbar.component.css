@@ -1,11 +1,14 @@
+.navbar {
+    border-bottom: 3px solid #17a2b8;
+}
+
 .navbar ul li a{
     text-decoration: none;
-    color: blue;
 }
 
 .navbar ul li {
     list-style-type: none;
-    margin-left: 40px;
+    margin-left: 10px;
 }
 .navbar ul{
     display: flex;
@@ -16,7 +19,7 @@
     width: 100%;
     max-width: 75%;
     margin: 0 auto;
-    background-color: white;
+    background-color: #fff!important;
     border-radius: 0 0 10px 10px;
     box-shadow: 10px 6px 29px;
 }
@@ -30,4 +33,7 @@
     display: flex;
 }
 
-
+button {
+  width: 80px;
+  margin-right: 10px;
+}

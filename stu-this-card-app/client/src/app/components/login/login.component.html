@@ -3,21 +3,21 @@
     <div front>
       <div class="text">
           <h1> stu-this-card.</h1>
-          <button class="btn-primary button " ngbButton (click)="flipCard()">
+          <button class="btn btn-outline-info button" ngbButton (click)="flipCard()">
             Login
           </button>
       </div>
     </div>
-    <div back>
+    <div back style="margin-top: 10px;">
       <div class="text">
         <form>
           <h3>First name:</h3>
-          <input type="text" name="firstname">
+          <input class="w3-input" type="text" name="firstname">
           <br>
           <h3>Last name:</h3>
-          <input type="text" name="lastname">
+          <input class="w3-input" type="text" name="lastname">
           <br/>
-          <input type="submit" value="Submit">
+          <input type="submit" class="btn btn-outline-info" value="Submit">
         </form>
       </div>
     </div>

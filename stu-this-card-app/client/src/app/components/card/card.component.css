@@ -33,7 +33,7 @@
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 3%;
+    border-radius: 25px;
 }
 
 .player .back {
@@ -54,4 +54,5 @@
     position: absolute;
     left: 50%;
     top: 50%;
+
 }
