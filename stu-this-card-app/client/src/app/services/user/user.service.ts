@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   uri = 'http://localhost:4000/users';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getUsers(){
+  getUsers() {
     return this.http.get(`${this.uri}`);
   }
 
-  getUsersById(id){
+  getUsersById(id) {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addUser(name, email){
+  addUser(name, email) {
     const user = {
       name: name,
       email: email,
@@ -25,7 +25,7 @@ export class UserService {
     return this.http.post(`${this.uri}/add`, user);
   }
 
-  updateUser(id, name, email){
+  updateUser(id, name, email) {
     const user = {
       name: name,
       email: email
@@ -33,7 +33,7 @@ export class UserService {
     return this.http.post(`${this.uri}/update/${id}`, user);
   }
 
-  deleteUser(id){
+  deleteUser(id) {
     return this.http.get(`${this.uri}/delete/${id}`);
   }
 
