@@ -37,7 +37,7 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.z = 10;
     this.scene.add(this.camera);
 
     // soft white light
@@ -45,9 +45,10 @@ export class EngineService {
     this.light.position.z = 10;
     this.scene.add(this.light);
 
-    this.addCube();
-    this.addSphere();
-    this.addCone();
+    // this.addCube();
+    // this.addSphere();
+    // this.addCone();
+    this.addHuman();
   }
 
   addCube() {
@@ -68,12 +69,22 @@ export class EngineService {
   }
 
   addCone() {
-    const geometry = new THREE.ConeGeometry(1, 1, 6);
+    const geometry = new THREE.ConeGeometry(1, 1, 8);
     const material = new THREE.MeshBasicMaterial( {color: 0xee42f4} );
     material.wireframe = true;
     this.cone = new THREE.Mesh(geometry, material );
     this.cone.position.y = -2;
     this.scene.add(this.cone);
+  }
+
+  addHuman() {
+    const jsonLoader = new THREE.JSONLoader();
+    jsonLoader.load(
+      'assets/HumanAnatomy.json',
+      (geometry, materials) => {
+        const object = new THREE.Mesh(geometry, materials[0]);
+        this.scene.add(object);
+      });
   }
 
   animate(): void {
@@ -91,14 +102,14 @@ export class EngineService {
       this.render();
     });
 
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
+    // this.cube.rotation.x += 0.01;
+    // this.cube.rotation.y += 0.01;
 
-    this.cone.rotation.x += 0.01;
-    this.cone.rotation.y += 0.01;
+    // this.cone.rotation.x += 0.01;
+    // this.cone.rotation.y += 0.01;
 
-    this.sphere.rotation.x += 0.01;
-    this.sphere.rotation.y += 0.01;
+    // this.sphere.rotation.x += 0.01;
+    // this.sphere.rotation.y += 0.01;
 
     this.renderer.render(this.scene, this.camera);
   }
