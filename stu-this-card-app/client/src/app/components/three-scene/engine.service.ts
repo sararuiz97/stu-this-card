@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
 import { Material, Sphere } from 'three';
+import { ThreeSceneComponent } from './three-scene.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class EngineService {
   private cube: THREE.Mesh;
   private sphere: THREE.Mesh;
   private cone: THREE.Mesh;
+  private human: THREE.Mesh;
 
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
@@ -37,7 +39,8 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
-    this.camera.position.z = 10;
+    this.camera.position.z = 150;
+    this.camera.position.y = 90;
     this.scene.add(this.camera);
 
     // soft white light
@@ -80,10 +83,11 @@ export class EngineService {
   addHuman() {
     const jsonLoader = new THREE.JSONLoader();
     jsonLoader.load(
-      'assets/HumanAnatomy.json',
+      'assets/Models/HumanAnatomy.json',
       (geometry, materials) => {
-        const object = new THREE.Mesh(geometry, materials[0]);
-        this.scene.add(object);
+        const object = new THREE.Mesh(geometry, materials);
+        this.human = object;
+        this.scene.add(this.human);
       });
   }
 
@@ -110,6 +114,10 @@ export class EngineService {
 
     // this.sphere.rotation.x += 0.01;
     // this.sphere.rotation.y += 0.01;
+
+    if (this.human) {
+      this.human.rotation.y += 0.01;
+    }
 
     this.renderer.render(this.scene, this.camera);
   }
