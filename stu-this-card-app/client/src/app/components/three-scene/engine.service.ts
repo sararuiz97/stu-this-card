@@ -1,7 +1,5 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
-import { Material, Sphere } from 'three';
-import { ThreeSceneComponent } from './three-scene.component';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +41,8 @@ export class EngineService {
     this.light.position.z = 5;
     this.scene.add(this.light);
 
-    this.addModels('assets/Models/atom.json');
+    // this.addModels('assets/Models/atom.json');
+    this.addShapes();
   }
 
   addCube() {
