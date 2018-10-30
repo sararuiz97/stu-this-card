@@ -19,6 +19,7 @@ export class EngineService {
   private sphere: THREE.Mesh;
   private cone: THREE.Mesh;
   private human: THREE.Mesh;
+  private atom: THREE.Mesh;
 
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
@@ -39,8 +40,9 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
-    this.camera.position.z = 150;
-    this.camera.position.y = 90;
+    // this.camera.position.z = 150;
+    // this.camera.position.y = 90;
+    this.camera.position.z = 5;
     this.scene.add(this.camera);
 
     // soft white light
@@ -51,7 +53,8 @@ export class EngineService {
     // this.addCube();
     // this.addSphere();
     // this.addCone();
-    this.addHuman();
+    // this.addHuman();
+    this.addAtom();
   }
 
   addCube() {
@@ -91,6 +94,17 @@ export class EngineService {
       });
   }
 
+  addAtom() {
+    const jsonLoader = new THREE.JSONLoader();
+    jsonLoader.load(
+      'assets/Models/atom.json',
+      (geometry, materials) => {
+        const object = new THREE.Mesh(geometry, materials);
+        this.atom = object;
+        this.scene.add(this.atom);
+      });
+  }
+
   animate(): void {
     window.addEventListener('DOMContentLoaded', () => {
       this.render();
@@ -117,6 +131,10 @@ export class EngineService {
 
     if (this.human) {
       this.human.rotation.y += 0.01;
+    }
+
+    if (this.atom) {
+      this.atom.rotation.y += 0.01;
     }
 
     this.renderer.render(this.scene, this.camera);
