@@ -35,6 +35,7 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
+    this.camera.position.z = 5;
     this.scene.add(this.camera);
 
     // soft white light
@@ -42,8 +43,7 @@ export class EngineService {
     this.light.position.z = 5;
     this.scene.add(this.light);
 
-    this.camera.position.z = 5;
-    this.addModels('assets/Models/adn.json');
+    this.addModels('assets/Models/atom.json');
   }
 
   addCube() {
@@ -76,8 +76,6 @@ export class EngineService {
   }
 
   addShapes() {
-    this.camera.position.z = 5;
-    this.camera.position.y = 0;
     this.addCube();
     this.addCone();
     this.addSphere();
@@ -88,7 +86,6 @@ export class EngineService {
   }
 
   addAtom() {
-    this.camera.position.z = 5;
     this.addModels('assets/Models/atom.json');
   }
 
