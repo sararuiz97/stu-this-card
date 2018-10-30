@@ -43,7 +43,8 @@ const routes: Routes = [
     NavbarComponent,
     MainComponent,
     WebglDashboardComponent,
-    ThreeSceneComponent
+    ThreeSceneComponent,
+    CardViewComponent
   ],
   imports: [
     BrowserModule,
