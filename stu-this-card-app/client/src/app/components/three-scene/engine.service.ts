@@ -20,8 +20,7 @@ export class EngineService {
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = <HTMLCanvasElement>document.getElementById(elementId);
-    this.windowx = window.innerWidth / 2;
-    this.windowy = window.innerHeight / 2;
+    this.recalculateWindow();
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -43,9 +42,6 @@ export class EngineService {
     this.light.position.z = 5;
     this.scene.add(this.light);
 
-    // this.addHuman();
-    // this.addAtom();
-    // this.addShapes();
     this.camera.position.z = 5;
     this.addModels('assets/Models/adn.json');
   }
@@ -132,7 +128,7 @@ export class EngineService {
   }
 
   recalculateWindow() {
-    this.windowx = window.innerWidth / 2;
+    this.windowx = window.innerWidth / 2.1;
     this.windowy = window.innerHeight / 2;
   }
 
