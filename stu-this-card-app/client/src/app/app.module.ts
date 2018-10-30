@@ -52,7 +52,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [UserService,CardService,CollectionService],
+  providers: [UserService, CardService, CollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
