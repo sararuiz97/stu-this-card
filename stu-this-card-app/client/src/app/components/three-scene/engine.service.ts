@@ -85,10 +85,6 @@ export class EngineService {
     });
   }
 
-  addAtom() {
-    this.addModels('assets/Models/atom.json');
-  }
-
   addModels(route: string) {
     const jsonLoader = new THREE.JSONLoader();
     jsonLoader.load(
