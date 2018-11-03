@@ -4,6 +4,11 @@
     padding: 10px;
 }
 
+div.col-3 app-card div{
+  height: 180px;
+  line-height: 180px;
+}
+
 h1 {
   margin-top: 20px;
   font-family: Hoefler Text,Baskerville Old Face,Garamond,Times New Roman,serif;

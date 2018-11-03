@@ -13,6 +13,7 @@ import { CardService } from './services/card/card.service';
 import { CollectionService } from './services/collection/collection.service';
 import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dashboard.component';
 import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
+import { CardViewComponent } from './components/card-view/card-view.component';
 
 const routes: Routes = [
   {
@@ -43,14 +44,15 @@ const routes: Routes = [
     NavbarComponent,
     MainComponent,
     WebglDashboardComponent,
-    ThreeSceneComponent
+    ThreeSceneComponent,
+    CardViewComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [UserService,CardService,CollectionService],
+  providers: [UserService, CardService, CollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

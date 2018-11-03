@@ -1,7 +1,5 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
-import { Material, Sphere } from 'three';
-import { ThreeSceneComponent } from './three-scene.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +18,7 @@ export class EngineService {
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = <HTMLCanvasElement>document.getElementById(elementId);
-    this.windowx = window.innerWidth / 2;
-    this.windowy = window.innerHeight / 2;
+    this.recalculateWindow();
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -36,52 +33,53 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
+    this.camera.position.z = 5;
     this.scene.add(this.camera);
 
     // soft white light
-    this.light = new THREE.AmbientLight( 0x404040 );
-    this.light.position.z = 5;
+    this.light = new THREE.DirectionalLight( 0x404040, 3.5 );
+    this.light.position.z = 3;
     this.scene.add(this.light);
 
-    // this.addHuman();
-    // this.addAtom();
-    // this.addShapes();
-    this.camera.position.z = 5;
     this.addModels('assets/Models/adn.json');
+    // this.addShapes();
   }
 
   addCube() {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    material.wireframe = true;
+    const material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const cube = new THREE.Mesh( geometry, material );
 
     this.models.push(cube);
   }
 
   addSphere() {
-    const geometry = new THREE.SphereGeometry(1, 10, 10);
-    const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-    material.wireframe = true;
+    const geometry = new THREE.SphereGeometry(1, 30, 30);
+    const material = new THREE.MeshPhongMaterial( {color: 0xffff00} );
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const sphere = new THREE.Mesh(geometry, material);
     sphere.position.y = 2;
+    sphere.position.x = 2;
 
     this.models.push(sphere);
   }
 
   addCone() {
-    const geometry = new THREE.ConeGeometry(1, 1, 8);
-    const material = new THREE.MeshBasicMaterial( {color: 0xee42f4} );
-    material.wireframe = true;
+    const geometry = new THREE.ConeGeometry(1, 1, 30);
+    const material = new THREE.MeshPhongMaterial( {color: 0xee42f4} );
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const cone = new THREE.Mesh(geometry, material );
     cone.position.y = -2;
+    cone.position.x = -2;
 
     this.models.push(cone);
   }
 
   addShapes() {
-    this.camera.position.z = 5;
-    this.camera.position.y = 0;
     this.addCube();
     this.addCone();
     this.addSphere();
@@ -89,11 +87,6 @@ export class EngineService {
     this.models.forEach((model) => {
       this.scene.add(model);
     });
-  }
-
-  addAtom() {
-    this.camera.position.z = 5;
-    this.addModels('assets/Models/atom.json');
   }
 
   addModels(route: string) {
@@ -126,13 +119,15 @@ export class EngineService {
 
     this.models.forEach((model) => {
       model.rotation.y += 0.01;
+      model.rotation.x += 0.01;
+      model.rotation.z += 0.001;
     });
 
     this.renderer.render(this.scene, this.camera);
   }
 
   recalculateWindow() {
-    this.windowx = window.innerWidth / 2;
+    this.windowx = window.innerWidth / 2.1;
     this.windowy = window.innerHeight / 2;
   }
 
