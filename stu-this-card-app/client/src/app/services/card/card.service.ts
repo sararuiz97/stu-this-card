@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
 export class CardService {
   uri = 'http://localhost:4000/cards';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getCards(){
+  getCards() {
     return this.http.get(`${this.uri}`);
   }
 
-  getCardsById(id){
+  getCardsById(id) {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCard(front, back){
+  addCard(front, back) {
     const card = {
       front: front,
       back: back
@@ -25,7 +25,7 @@ export class CardService {
     return this.http.post(`${this.uri}/add`, card);
   }
 
-  updateCard(id, front, back){
+  updateCard(id, front, back) {
     const card = {
       front: front,
       back: back
@@ -33,7 +33,7 @@ export class CardService {
     return this.http.post(`${this.uri}/update/${id}`, card);
   }
 
-  deleteCard(id){
+  deleteCard(id) {
     return this.http.get(`${this.uri}/delete/${id}`);
   }
 
