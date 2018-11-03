@@ -37,39 +37,44 @@ export class EngineService {
     this.scene.add(this.camera);
 
     // soft white light
-    this.light = new THREE.AmbientLight( 0x404040 );
-    this.light.position.z = 5;
+    this.light = new THREE.DirectionalLight( 0x404040, 3.5 );
+    this.light.position.z = 3;
     this.scene.add(this.light);
 
-    // this.addModels('assets/Models/atom.json');
-    this.addShapes();
+    this.addModels('assets/Models/adn.json');
+    // this.addShapes();
   }
 
   addCube() {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    material.wireframe = true;
+    const material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const cube = new THREE.Mesh( geometry, material );
 
     this.models.push(cube);
   }
 
   addSphere() {
-    const geometry = new THREE.SphereGeometry(1, 10, 10);
-    const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-    material.wireframe = true;
+    const geometry = new THREE.SphereGeometry(1, 30, 30);
+    const material = new THREE.MeshPhongMaterial( {color: 0xffff00} );
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const sphere = new THREE.Mesh(geometry, material);
     sphere.position.y = 2;
+    sphere.position.x = 2;
 
     this.models.push(sphere);
   }
 
   addCone() {
-    const geometry = new THREE.ConeGeometry(1, 1, 8);
-    const material = new THREE.MeshBasicMaterial( {color: 0xee42f4} );
-    material.wireframe = true;
+    const geometry = new THREE.ConeGeometry(1, 1, 30);
+    const material = new THREE.MeshPhongMaterial( {color: 0xee42f4} );
+    // material.wireframe = true;
+    material.shininess = 20.5;
     const cone = new THREE.Mesh(geometry, material );
     cone.position.y = -2;
+    cone.position.x = -2;
 
     this.models.push(cone);
   }
@@ -114,6 +119,8 @@ export class EngineService {
 
     this.models.forEach((model) => {
       model.rotation.y += 0.01;
+      model.rotation.x += 0.01;
+      model.rotation.z += 0.001;
     });
 
     this.renderer.render(this.scene, this.camera);
