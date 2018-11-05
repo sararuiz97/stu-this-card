@@ -33,15 +33,15 @@ export class EngineService {
     this.camera = new THREE.PerspectiveCamera(
       75, this.windowx / this.windowy, 0.1, 1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.z = 10;
     this.scene.add(this.camera);
 
-    // soft white light
+    // Directional white light
     this.light = new THREE.DirectionalLight( 0x404040, 3.5 );
-    this.light.position.z = 3;
+    this.light.position.z = 4;
     this.scene.add(this.light);
 
-    this.addModels('assets/Models/adn.json');
+    this.addModels('assets/Models/atom.json');
     // this.addShapes();
   }
 
@@ -128,7 +128,7 @@ export class EngineService {
 
   recalculateWindow() {
     this.windowx = window.innerWidth / 2.1;
-    this.windowy = window.innerHeight / 2;
+    this.windowy = window.innerHeight;
   }
 
   resize() {
