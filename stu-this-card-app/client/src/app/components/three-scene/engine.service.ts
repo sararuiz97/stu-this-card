@@ -41,12 +41,12 @@ export class EngineService {
     this.light.position.z = 4;
     this.scene.add(this.light);
 
-    this.addModels('assets/Models/atom.json');
-    // this.addShapes();
+    // this.addModels('assets/Models/atom.json');
+    this.addShapes();
   }
 
   addCube() {
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
     const material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
     // material.wireframe = true;
     material.shininess = 20.5;
@@ -56,25 +56,25 @@ export class EngineService {
   }
 
   addSphere() {
-    const geometry = new THREE.SphereGeometry(1, 30, 30);
+    const geometry = new THREE.SphereGeometry(1.5, 30, 30);
     const material = new THREE.MeshPhongMaterial( {color: 0xffff00} );
     // material.wireframe = true;
     material.shininess = 20.5;
     const sphere = new THREE.Mesh(geometry, material);
-    sphere.position.y = 2;
-    sphere.position.x = 2;
+    sphere.position.y = 4;
+    sphere.position.x = 4;
 
     this.models.push(sphere);
   }
 
   addCone() {
-    const geometry = new THREE.ConeGeometry(1, 1, 30);
+    const geometry = new THREE.ConeGeometry(1.5, 1.5, 30);
     const material = new THREE.MeshPhongMaterial( {color: 0xee42f4} );
     // material.wireframe = true;
     material.shininess = 20.5;
     const cone = new THREE.Mesh(geometry, material );
-    cone.position.y = -2;
-    cone.position.x = -2;
+    cone.position.y = -4;
+    cone.position.x = -4;
 
     this.models.push(cone);
   }
