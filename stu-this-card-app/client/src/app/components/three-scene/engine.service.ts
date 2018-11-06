@@ -41,7 +41,7 @@ export class EngineService {
     this.light.position.z = 4;
     this.scene.add(this.light);
 
-    // this.addModels('assets/Models/atom.json');
+    // this.addModels('assets/Models/adn.json');
     this.addShapes();
   }
 
@@ -128,7 +128,7 @@ export class EngineService {
 
   recalculateWindow() {
     this.windowx = window.innerWidth / 2.1;
-    this.windowy = window.innerHeight;
+    this.windowy = window.innerHeight / 1.1;
   }
 
   resize() {
