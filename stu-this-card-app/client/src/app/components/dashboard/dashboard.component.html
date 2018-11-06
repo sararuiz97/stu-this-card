@@ -4,9 +4,8 @@
   <div class="row justify-content-around">
     <div
       class="col-3"
-      *ngFor="let card of cards; let i = index"
-      (click)="flipCard(i)">
-      <div class="card-container">
+      *ngFor="let card of cards; let i = index">
+      <div class="card-container" (click)="flipCard(i)">
         <app-card id={{i}} #ref>
           <div front>
             <p>{{card.front.text}}</p>
