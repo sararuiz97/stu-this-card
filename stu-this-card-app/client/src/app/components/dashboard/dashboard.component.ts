@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { CardService } from '../../services/card/card.service';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  cards: Object = [];
+  @ViewChildren(CardComponent) mc: QueryList<CardComponent>;
+
+  constructor(private service: CardService) {}
 
   ngOnInit() {
+    this.service.getCards().forEach(card => {
+      this.cards = card;
+    });
   }
 
+  flipCard(i) {
+    // console.log(i);
+    this.mc._results[i].flipIt();
+  }
 }

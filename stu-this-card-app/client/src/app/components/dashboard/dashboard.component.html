@@ -1,48 +1,22 @@
 <div class="conatiner">
   <h1>  Geometry </h1>
+
   <div class="row justify-content-around">
-
-
-    <div class="col-3">
+    <div
+      class="col-3"
+      *ngFor="let card of cards; let i = index"
+      (click)="flipCard(i)">
       <div class="card-container">
-        <app-card>
+        <app-card id={{i}} #ref>
           <div front>
-            Sphere
+            <p>{{card.front.text}}</p>
           </div>
-          <div back>
-            Adios
+          <div  class="back" back>
+            <p>{{card.back.text}}</p>
           </div>
         </app-card>
-
       </div>
     </div>
-
-
-    <div class="col-3">
-        <div class="card-container">
-            <app-card>
-              <div front>
-                Cube
-              </div>
-              <div back>
-                Adios
-              </div>
-            </app-card>
-          </div>
-    </div>
-
-    <div class="col-3">
-        <div class="card-container">
-            <app-card>
-              <div front>
-                Cone
-              </div>
-              <div back>
-                Adios
-              </div>
-            </app-card>
-          </div>
-    </div>
-
   </div>
+
 </div>

@@ -17,3 +17,7 @@ h1 {
   color: #fff;
   text-decoration: underline;
 }
+
+p{
+  line-height: 20px;
+}
