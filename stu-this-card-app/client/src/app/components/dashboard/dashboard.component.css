@@ -4,6 +4,21 @@
     padding: 10px;
 }
 
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  padding: 20px;
+  overflow: scroll;
+  margin: 5px;
+}
+
 div.col-3 app-card div{
   height: 180px;
   line-height: 180px;
