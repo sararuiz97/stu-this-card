@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   flipCard(i) {
-    // console.log(i);
-    this.mc._results[i].flipIt();
+    const arr = this.mc.toArray();
+    arr[i].flipIt();
   }
 }
