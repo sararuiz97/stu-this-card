@@ -62,3 +62,13 @@ router.route('/delete/:id').get((req,res) => {
     }
   });
 });
+
+router.route('/cardscollection/:collectionId').get((req, res) => {
+  Card.find({its_collection: req.params.collectionId}, (err, cards) => {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(cards);
+    }
+  });
+});

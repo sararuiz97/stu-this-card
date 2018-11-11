@@ -11,7 +11,7 @@ let Card = new Schema({
       text: String,
       media: String
     },
-    its_collection: String,
+    its_collection: Schema.Types.ObjectId,
 });
 
 export default mongoose.model('Card', Card);

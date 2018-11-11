@@ -15,7 +15,8 @@ export class DashboardComponent implements OnInit {
   constructor(private service: CardService) {}
 
   ngOnInit() {
-    this.service.getCards().forEach(card => {
+    // Fixme get collection id from somewhere
+    this.service.getCardsByCollection('').forEach(card => {
       this.cards = card;
     });
   }

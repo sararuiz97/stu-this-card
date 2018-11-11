@@ -17,6 +17,10 @@ export class CardService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
+  getCardsByCollection (collectionId) {
+    return this.http.get(`${this.uri}/cardscollection/${collectionId}`);
+  }
+
   addCard(front, back, collection) {
     const card = {
       its_collection: collection,
