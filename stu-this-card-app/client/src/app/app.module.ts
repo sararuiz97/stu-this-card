@@ -14,6 +14,7 @@ import { CollectionService } from './services/collection/collection.service';
 import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dashboard.component';
 import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
 import { CardViewComponent } from './components/card-view/card-view.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: '3d',
     component: WebglDashboardComponent,
+  },
+  {
+    path: 'add',
+    component: AddCardComponent,
   },
   {
     path: '',
@@ -45,7 +50,8 @@ const routes: Routes = [
     MainComponent,
     WebglDashboardComponent,
     ThreeSceneComponent,
-    CardViewComponent
+    CardViewComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,
