@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { CardService } from '../../services/card/card.service';
 import { CardComponent } from '../card/card.component';
 

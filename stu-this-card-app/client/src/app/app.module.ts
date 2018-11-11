@@ -22,12 +22,13 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 
+import { AddCardComponent } from './components/add-card/add-card.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: MainComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -37,9 +38,18 @@ const routes: Routes = [
     path: '3d',
     component: WebglDashboardComponent,
   },
-  {path:'', component: LoginComponent},
+  {path: '', component: LoginComponent},
 
-  {path:'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {
+    path: 'add',
+    component: AddCardComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
@@ -54,7 +64,8 @@ const routes: Routes = [
     WebglDashboardComponent,
     ThreeSceneComponent,
     CardViewComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddCardComponent,
   ],
   imports: [
     BrowserModule,

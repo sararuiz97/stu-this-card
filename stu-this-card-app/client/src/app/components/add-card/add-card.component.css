@@ -1,0 +1,52 @@
+.container {
+    width: 80%;
+    height: 70%;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.container app-card {
+    box-shadow: 10px 6px 29px;
+}
+
+.text {
+    position: relative;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.text h1 {
+  font-family: Hoefler Text,Baskerville Old Face,Garamond,Times New Roman,serif;
+  padding: 60px 0 5px 5px;
+  font-size: 60px;
+}
+
+.text h3 {
+  font-family: Hoefler Text,Baskerville Old Face,Garamond,Times New Roman,serif;
+  font-size: 20px;
+  padding: 20px 0 0 36%;
+  text-align: left;
+}
+
+.text button {
+  width: 300px;
+}
+
+.text input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #17a2b8;
+}
+
+.text input[type="submit"] {
+  margin-top: 20px;
+  width: 180px;
+}
