@@ -1,6 +1,0 @@
-@mixin align-items($var) {
-	-webkit-box-align: $var;
-	-webkit-align-items: $var;
-	-ms-flex-align: $var;
-	align-items: $var;
-}
