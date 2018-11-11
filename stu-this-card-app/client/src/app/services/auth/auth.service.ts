@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   getProfile() {
-    let headers = new Headers();
+    const headers = new Headers();
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
