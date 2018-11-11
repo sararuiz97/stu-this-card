@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>  Geometry </h1>
+
+  <div class="row justify-content-around">
+    <div
+      class="col-3"
+      *ngFor="let card of cards; let i = index">
+      <div class="card-container" (click)="flipCard(i)">
+        <app-card id={{i}} #ref>
+          <div front class="front">
+            <p>{{card.front.text}}</p>
+          </div>
+          <div  class="back" back>
+            <p>{{card.back.text}}</p>
+          </div>
+        </app-card>
+      </div>
+    </div>
+  </div>
+
+</div>

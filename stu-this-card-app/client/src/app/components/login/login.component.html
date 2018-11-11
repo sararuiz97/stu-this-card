@@ -1,0 +1,47 @@
+<div class="container">
+  <app-card #login_card>
+    <div front>
+      <div class="text">
+          <h1> stu-this-card.</h1>
+          <button class="btn btn-outline-info button" ngbButton (click)="flipCard()">
+            Login
+          </button>
+          <br>
+          <br>
+          <button class="btn btn-outline-info button" ngbButton [routerLink]="['/register']">
+            Register
+          </button>
+
+      </div>
+    </div>
+    <div back style="margin-top: 10px;">
+      <div class="text">
+        <form class="form-signin" (submit)="onLoginSubmit()">
+
+              <div class="form-group">
+                  <label for="Username">Username</label><br>
+                  <input class="login-input" placeholder="Enter Username" [(ngModel)]="username" name="username">
+              </div>
+
+              <div class="form-group">
+                <label for="Password">Password</label><br>
+                <input type="password" class="login-input" placeholder=" Enter Password" [(ngModel)]="password" name="password">
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <br>
+              <button class="btn btn-outline-info button" type="submit" ngbButton>
+                Login
+              </button>
+        </form>
+
+      </div>
+    </div>
+  </app-card>
+
+
+</div>

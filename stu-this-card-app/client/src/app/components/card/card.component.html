@@ -1,0 +1,10 @@
+<div class="flipped">
+  <div id="player" class="player" [class.voted]="flipped">
+      <div class="front">
+        <ng-content select="[front]"></ng-content>
+      </div>
+      <div class="back">
+          <ng-content select="[back]"></ng-content>
+      </div>
+  </div>
+</div>

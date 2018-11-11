@@ -1,0 +1,14 @@
+.header{
+	width: 100%;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $color-divider;
+	z-index: 100;
+	@include media(small){
+	display: none;
+	}
+	@include media(medium){
+		display: none;
+	}
+}
