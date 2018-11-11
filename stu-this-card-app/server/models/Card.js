@@ -10,7 +10,8 @@ let Card = new Schema({
     back: {
       text: String,
       media: String
-    }
+    },
+    its_collection: String,
 });
 
 export default mongoose.model('Card', Card);

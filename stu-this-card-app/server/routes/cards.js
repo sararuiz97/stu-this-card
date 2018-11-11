@@ -39,6 +39,7 @@ router.route('/update/:id').post((req,res) => {
     if (!card)
       return next(new Error('Could not load document'));
     else{
+      card.collection = req.body.collection;
       card.front = req.body.front;
       card.back = req.body.back;
 

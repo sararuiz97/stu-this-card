@@ -13,7 +13,7 @@ export class AddCardComponent implements OnInit {
   }
 
   addNewCard(f, b) {
-    this.service.addCard(f, b);
+    // this.service.addCard(f, b);
   }
 
 }
