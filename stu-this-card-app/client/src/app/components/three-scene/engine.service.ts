@@ -1,8 +1,5 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
-import { callbackify } from 'util';
-import { TouchSequence } from 'selenium-webdriver';
-import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
