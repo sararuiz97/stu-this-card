@@ -33,7 +33,6 @@ export class AddCollectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log('Creator: ', this.creator_id);
   }
 
   selectModel(event) {
@@ -41,7 +40,6 @@ export class AddCollectionComponent implements OnInit {
   }
 
   addNewCollection(name) {
-    console.log(this.selectedModel);
     if (this.selectedModel === 'nothing' ) {
       this.service.addCollection(name, false, '', this.creator_id).subscribe(() => {
         this.router.navigate(['/collections']);

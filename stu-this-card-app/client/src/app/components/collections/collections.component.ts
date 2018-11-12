@@ -29,7 +29,6 @@ export class CollectionsComponent implements OnInit {
     // Fixme get creator id from somewhere
     this.service.getCollections().forEach(collection => {
       this.colls = collection;
-      console.log('COLECTION', collection);
     });
   }
 
