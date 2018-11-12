@@ -14,14 +14,19 @@ import * as CollectionActions from '../../actions/collection.actions';
 export class CollectionsComponent implements OnInit {
 
   colls: Object = [];
+  creator_id: String;
 
   constructor(
     private service: CollectionService,
     private router: Router,
-    private store: Store<AppState>) {}
+    private store: Store<AppState>) {
+      this.store.select('collection').forEach(el => {
+        this.creator_id = el.creator;
+      });
+    }
 
   ngOnInit() {
-    // Fixme get collection id from somewhere
+    // Fixme get creator id from somewhere
     this.service.getCollections().forEach(collection => {
       this.colls = collection;
     });
@@ -32,7 +37,9 @@ export class CollectionsComponent implements OnInit {
       name: my_collection.name,
       id: my_collection._id,
       its_3d: my_collection.its_3d,
-      model_3d: my_collection.model_3d
+      model_3d: my_collection.model_3d,
+      creator: ''
+      // FIX HERE ^
     };
     this.store.dispatch(new CollectionActions.ChangeCollection(col));
     if (my_collection.its_3d) {

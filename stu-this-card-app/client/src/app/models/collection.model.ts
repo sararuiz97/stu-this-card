@@ -3,4 +3,5 @@ export interface Collection {
     id: String;
     its_3d: Boolean;
     model_3d: String;
+    creator: String;
 }

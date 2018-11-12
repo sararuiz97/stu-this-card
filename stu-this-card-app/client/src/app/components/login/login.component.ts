@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-// import { FlashMessagesService } from 'angular2-flash-messages';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.state';
+import * as CollectionActions from '../../actions/collection.actions';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,7 @@ export class LoginComponent implements OnInit {
   password: String;
   name: String;
   email: String;
+  currCreator: String;
 
 
   @ViewChild('login_card') loginCard: CardComponent;
@@ -21,8 +24,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    // private flashMessage: FlashMessagesService
-  ) {}
+    private store: Store<AppState>
+  ) {
+    this.store.select('collection').forEach(el => {
+      this.currCreator = el.creator;
+    });
+  }
 
   ngOnInit() {
   }
@@ -36,11 +43,11 @@ export class LoginComponent implements OnInit {
 
     this.authService.authenticateUser(user).subscribe(data => {
         if (data.success) {
+          const theCreator = data.user.id;
           this.authService.storeUserData(data.token, data.user);
-          // this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
+          this.store.dispatch(new CollectionActions.ChangeCreator(theCreator));
           this.router.navigate(['collections']);
         } else {
-          // this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
           this.router.navigate(['login']);
         }
     });
