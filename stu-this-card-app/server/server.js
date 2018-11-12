@@ -1,50 +1,24 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import path from 'path';
 import mongoose from 'mongoose';
-import passport from 'passport';
-import config from './config/database';
-
-// Connect To Database
-mongoose.connect(config.database);
-// On Connection
-mongoose.connection.on('connected', () => {
-  console.log('Connected to Database '+config.database);
-});
-// On Error
-mongoose.connection.on('error', (err) => {
-  console.log('Database error '+err);
-});
 
 const app = express();
 
-const cards = require('./routes/cards');
-const collections = require('./routes/collections');
-const users = require('./routes/users');
+mongoose.connect('mongodb://localhost:27017/cardsDB');
+const connection = mongoose.connection;
 
+connection.once('open', () => {
+   console.log('MongoDB connection succeeded');
+});
 
-// Port Number
-const port = process.env.PORT || 4000;
-
-// CORS Middleware
 app.use(cors());
-
-// Body Parser Middleware
 app.use(bodyParser.json());
 
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
 
-require('./config/passport')(passport);
-
-app.use('/cards', cards);
-app.use('/collections', collections);
-app.use('/users', users);
+app.use('/cards', require('./controllers/card.controller'));
+app.use('/collections', require('./controllers/collection.controller'));
+app.use('/users', require('./controllers/user.controller'));
 
 
-// Start Server
-app.listen(port, () => {
-  console.log('Server started on port '+ port);
-});
+app.listen(4000, () => console.log('Express server running on port 4000'));

@@ -10,8 +10,7 @@ let Card = new Schema({
     back: {
       text: String,
       media: String
-    },
-    its_collection: Schema.Types.ObjectId,
+    }
 });
 
 export default mongoose.model('Card', Card);

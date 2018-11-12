@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
 
   flipIt() {
     this.flipped = !this.flipped;
+    console.log('flipIt');
   }
 
 }

@@ -1,6 +1,6 @@
 .container {
     width: 50%;
-    height: 340px;
+    height: 300px;
 
     position: absolute;
     top:0;
@@ -28,12 +28,6 @@
   font-family: Hoefler Text,Baskerville Old Face,Garamond,Times New Roman,serif;
   padding: 60px 0 5px 5px;
   font-size: 60px;
-
-}
-.login-input{
-  width: 300px;
-  border: 0;
-  border-bottom: 2px solid #17a2b8;
 }
 
 .text h3 {
