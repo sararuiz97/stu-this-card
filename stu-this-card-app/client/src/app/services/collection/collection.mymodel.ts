@@ -1,3 +1,3 @@
-export interface Collection {
+export interface MyCollection {
     name: String;
 }

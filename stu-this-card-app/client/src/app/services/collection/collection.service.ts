@@ -17,11 +17,12 @@ export class CollectionService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCollection(name, its3d, model) {
+  addCollection(name, its3d, model, creator) {
     const collection = {
       name: name,
       its_3d: its3d,
       model_3d: model,
+      creator: creator,
     };
     return this.http.post(`${this.uri}/add`, collection);
   }
