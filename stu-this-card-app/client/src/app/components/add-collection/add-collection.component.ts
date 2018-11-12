@@ -26,10 +26,16 @@ export class AddCollectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  addNewCollection(name) {
-    this.service.addCollection(name).subscribe(() => {
-      this.router.navigate(['/collections']);
-    });
+  addNewCollection(name, model) {
+    if (!model || model === '' ) {
+      this.service.addCollection(name, false, '').subscribe(() => {
+        this.router.navigate(['/collections']);
+      });
+    } else {
+      this.service.addCollection(name, true, model).subscribe(() => {
+        this.router.navigate(['/collections']);
+      });
+    }
   }
 
 }

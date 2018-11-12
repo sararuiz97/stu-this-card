@@ -17,9 +17,11 @@ export class CollectionService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCollection(name) {
+  addCollection(name, its3d, model) {
     const collection = {
       name: name,
+      its_3d: its3d,
+      model_3d: model,
     };
     return this.http.post(`${this.uri}/add`, collection);
   }

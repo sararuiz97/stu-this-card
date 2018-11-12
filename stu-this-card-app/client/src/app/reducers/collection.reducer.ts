@@ -4,7 +4,9 @@ import * as CollectionActions from './../actions/collection.actions';
 
 const defColl: Collection = {
     name: '',
-    id: ''
+    id: '',
+    its_3d: false,
+    model_3d: ''
 };
 
 export function reducer(state: Collection =  defColl, action: CollectionActions.Actions) {

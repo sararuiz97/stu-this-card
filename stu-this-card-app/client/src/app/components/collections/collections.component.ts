@@ -31,10 +31,15 @@ export class CollectionsComponent implements OnInit {
     const col: Collection = {
       name: my_collection.name,
       id: my_collection._id,
+      its_3d: my_collection.its_3d,
+      model_3d: my_collection.model_3d
     };
-    console.log(my_collection);
     this.store.dispatch(new CollectionActions.ChangeCollection(col));
-    this.router.navigate(['dashboard']);
+    if (my_collection.its_3d) {
+      this.router.navigate(['3d']);
+    } else {
+      this.router.navigate(['dashboard']);
+    }
   }
 
 }

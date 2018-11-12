@@ -37,7 +37,11 @@ export class AddCardComponent implements OnInit {
 
   onSubmitCard(front, back) {
     this.service.addCard(front, back, this.currCollection.id).subscribe(() => {
-      this.router.navigate(['/dashboard']);
+      if (this.currCollection.its_3d) {
+        this.router.navigate(['/3d']);
+      } else {
+        this.router.navigate(['/dashboard']);
+      }
     });
   }
 
