@@ -27,7 +27,7 @@ export class CollectionsComponent implements OnInit {
 
   ngOnInit() {
     // Fixme get creator id from somewhere
-    this.service.getCollections().forEach(collection => {
+    this.service.getCollectionByCreator(this.creator_id).forEach(collection => {
       this.colls = collection;
     });
   }
