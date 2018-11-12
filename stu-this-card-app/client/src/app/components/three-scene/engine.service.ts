@@ -31,7 +31,7 @@ export class EngineService {
     }
   }
 
-  createScene(elementId: string): void {
+  createScene(elementId: any): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = <HTMLCanvasElement>document.getElementById(elementId);
     this.recalculateWindow();
@@ -142,7 +142,7 @@ export class EngineService {
       model.rotation.z += 0.001;
     });
 
-    this.renderer.render(this.scene, this.camera);
+    this.renderer.render(this.scene, this.camera, null, true);
   }
 
   cleanScene() {

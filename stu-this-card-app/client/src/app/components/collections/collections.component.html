@@ -5,9 +5,9 @@
     <div class="row justify-content-around">
       <div
         class="col-3"
-        *ngFor="let collection of colls; let i = index">
+        *ngFor="let collection of colls">
         <div class="card-container">
-          <app-card id={{i}} (click)="goToCards(this.collection)">
+          <app-card (click)="goToCards(this.collection)">
             <div front class="front">
               <p>{{collection.name}}</p>
             </div>

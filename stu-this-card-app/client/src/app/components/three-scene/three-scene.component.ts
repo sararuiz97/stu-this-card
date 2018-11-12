@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { EngineService } from './engine.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
@@ -8,7 +8,7 @@ import { AppState } from '../../app.state';
   templateUrl: './three-scene.component.html',
   styleUrls: ['./three-scene.component.css']
 })
-export class ThreeSceneComponent implements OnInit {
+export class ThreeSceneComponent implements OnInit, AfterViewInit {
   private canEleId = 'renderCanvas';
   model: String;
 
@@ -16,10 +16,12 @@ export class ThreeSceneComponent implements OnInit {
     this.store.select('collection').forEach(el => {
       this.model = el.model_3d;
     });
-    // console.log('Model', this.model);
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.engServ.cleanScene();
     this.engServ.setModelToRender(this.model);
     this.engServ.createScene(this.canEleId);

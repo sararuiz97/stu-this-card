@@ -30,6 +30,7 @@ export class CollectionsComponent implements OnInit {
     this.service.getCollectionByCreator(this.creator_id).forEach(collection => {
       this.colls = collection;
     });
+    console.log(this.store);
   }
 
   goToCards(my_collection) {
@@ -38,8 +39,7 @@ export class CollectionsComponent implements OnInit {
       id: my_collection._id,
       its_3d: my_collection.its_3d,
       model_3d: my_collection.model_3d,
-      creator: ''
-      // FIX HERE ^
+      creator: my_collection.creator
     };
     this.store.dispatch(new CollectionActions.ChangeCollection(col));
     if (my_collection.its_3d) {
