@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-//import { FlashMessagesService } from 'angular2-flash-messages';
+// import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    //private flashMessage: FlashMessagesService
+    // private flashMessage: FlashMessagesService
   ) {}
 
   ngOnInit() {
@@ -32,15 +32,15 @@ export class LoginComponent implements OnInit {
     const user = {
       username: this.username,
       password: this.password
-    }
+    };
 
     this.authService.authenticateUser(user).subscribe(data => {
-        if(data.success) {
+        if (data.success) {
           this.authService.storeUserData(data.token, data.user);
-          //this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
+          // this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
           this.router.navigate(['dashboard']);
         } else {
-          //this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
+          // this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
           this.router.navigate(['login']);
         }
     });

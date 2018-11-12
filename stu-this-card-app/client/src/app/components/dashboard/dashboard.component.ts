@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { CardService } from '../../services/card/card.service';
 import { CardComponent } from '../card/card.component';
+import { Store } from '@ngrx/store';
+import { Collection } from '../../models/collection.model';
+import { AppState } from '../../app.state';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +15,16 @@ export class DashboardComponent implements OnInit {
 
   cards: Object = [];
   @ViewChildren(CardComponent) mc: QueryList<CardComponent>;
+  currCollection: Collection;
 
-  constructor(private service: CardService) {}
+  constructor(private service: CardService, private store: Store<AppState>) {
+    this.store.select('collection').forEach(el => {
+      this.currCollection = el;
+    });
+  }
 
   ngOnInit() {
-    // Fixme get collection id from somewhere
-    this.service.getCardsByCollection('').forEach(card => {
+    this.service.getCardsByCollection(this.currCollection.id).forEach(card => {
       this.cards = card;
     });
   }

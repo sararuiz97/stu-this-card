@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^6.1.2",
     "@types/three": "^0.93.4",
     "angular2-flash-messages": "^3.0.1",
     "angular2-jwt": "^0.2.3",

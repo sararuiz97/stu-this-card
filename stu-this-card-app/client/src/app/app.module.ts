@@ -15,16 +15,22 @@ import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dash
 import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
 import { CardViewComponent } from './components/card-view/card-view.component';
 import { FormsModule } from '@angular/forms';
-
 import { ValidateService } from './services/validate/validate.service';
 import { AuthService } from './services/auth/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
-
 import { AddCardComponent } from './components/add-card/add-card.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/collection.reducer';
 
 const routes: Routes = [
+  {
+    path: 'collections',
+    component: CollectionsComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'dashboard',
     component: MainComponent,
@@ -47,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/collections',
     pathMatch: 'full'
   },
 ];
@@ -66,6 +72,7 @@ const routes: Routes = [
     CardViewComponent,
     RegisterComponent,
     AddCardComponent,
+    CollectionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,9 +80,13 @@ const routes: Routes = [
     HttpModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    StoreModule.forRoot({
+      collection: reducer
+    }),
   ],
   providers: [CardService, CollectionService, ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
