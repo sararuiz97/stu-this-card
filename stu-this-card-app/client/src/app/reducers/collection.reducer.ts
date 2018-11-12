@@ -2,7 +2,12 @@ import { Action } from '@ngrx/store';
 import { Collection } from './../models/collection.model';
 import * as CollectionActions from './../actions/collection.actions';
 
-export function reducer(state: Collection, action: CollectionActions.Actions) {
+const defColl: Collection = {
+    name: '',
+    id: ''
+};
+
+export function reducer(state: Collection =  defColl, action: CollectionActions.Actions) {
 
     switch (action.type) {
         case CollectionActions.CHANGE_COLLECTION:
