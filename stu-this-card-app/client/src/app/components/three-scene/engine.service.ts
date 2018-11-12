@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
+import { callbackify } from 'util';
+import { TouchSequence } from 'selenium-webdriver';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,24 @@ export class EngineService {
   private light: THREE.AmbientLight;
   private windowx: number;
   private windowy: number;
-
   private models: THREE.Mesh[] = [];
+  private modelToRender = '';
+
+  public setModelToRender(model) {
+    switch (model) {
+      case 'atom':
+        this.modelToRender = 'assets/Models/atom.json';
+        break;
+      case 'adn':
+        this.modelToRender = 'assets/Models/adn.json';
+        break;
+      case 'shapes':
+        this.modelToRender = 'shapes';
+        break;
+      default:
+        break;
+    }
+  }
 
   createScene(elementId: string): void {
     // The first step is to get the reference of the canvas element from our HTML document
@@ -41,8 +60,11 @@ export class EngineService {
     this.light.position.z = 4;
     this.scene.add(this.light);
 
-    // this.addModels('assets/Models/adn.json');
-    this.addShapes();
+    if (this.modelToRender === 'shapes') {
+      this.addShapes();
+    } else {
+      this.addModels(this.modelToRender);
+    }
   }
 
   addCube() {
@@ -124,6 +146,10 @@ export class EngineService {
     });
 
     this.renderer.render(this.scene, this.camera);
+  }
+
+  cleanScene() {
+    this.models = [];
   }
 
   recalculateWindow() {

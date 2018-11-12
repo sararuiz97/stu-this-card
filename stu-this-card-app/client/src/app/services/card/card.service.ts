@@ -17,10 +17,19 @@ export class CardService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCard(front, back) {
+  getCardsByCollection (collectionId) {
+    return this.http.get(`${this.uri}/cardscollection/${collectionId}`);
+  }
+
+  addCard(front, back, collection) {
     const card = {
-      front: front,
-      back: back
+      its_collection: collection,
+      front: {
+        text: front,
+      },
+      back: {
+        text: back,
+      }
     };
     return this.http.post(`${this.uri}/add`, card);
   }

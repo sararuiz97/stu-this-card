@@ -7,25 +7,31 @@ import { HttpClient } from '@angular/common/http';
 export class CollectionService {
   uri = 'http://localhost:4000/collections';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getCollections(){
+  getCollections() {
     return this.http.get(`${this.uri}`);
   }
 
-  getCollectionsById(id){
+  getCollectionsById(id) {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCollection(name, creator){
+  addCollection(name, its3d, model, creator) {
     const collection = {
       name: name,
-      creator: creator
+      its_3d: its3d,
+      model_3d: model,
+      creator: creator,
     };
     return this.http.post(`${this.uri}/add`, collection);
   }
 
-  updateCollection(id, name, creator){
+  getCollectionByCreator (creatorId) {
+    return this.http.get(`${this.uri}/collectioncreator/${creatorId}`);
+  }
+
+  updateCollection(id, name, creator) {
     const collection = {
       name: name,
       creator: creator
@@ -33,7 +39,7 @@ export class CollectionService {
     return this.http.post(`${this.uri}/update/${id}`, collection);
   }
 
-  deleteCollection(id){
+  deleteCollection(id) {
     return this.http.get(`${this.uri}/delete/${id}`);
   }
 

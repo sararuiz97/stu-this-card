@@ -1,0 +1,29 @@
+<div class="container">
+  <app-card #login_card>
+    <div front>
+      <div class="text">
+        <br>
+        <h2 class="page-header">Add Card</h2>
+        <form class="register--form" [formGroup]="createForm">
+          <div class="form-group">
+            <label for="name">Name</label><br>
+            <input type="text" formControlName="name" #name class="login-input">
+            <br>
+            <label> Do you wish to include a 3D model? </label><br>
+            <fieldset>
+              <input type="radio" name='model' #model value="nothing"  checked (change)="selectModel($event)"> No 3D model <br>
+              <input type="radio" name='model' #model value="shapes" (change)="selectModel($event)"> 3D Shapes<br>
+              <input type="radio" name='model' #model value="atom" (change)="selectModel($event)"> Atom <br>
+              <input type="radio" name='model' #model value="adn" (change)="selectModel($event)"> ADN <br>
+            </fieldset>
+          </div>
+          <button class="btn btn-outline-info button" type="submit" ngbButton (click)="addNewCollection(name.value)">
+            Add Collection
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </app-card>
+</div>
+  

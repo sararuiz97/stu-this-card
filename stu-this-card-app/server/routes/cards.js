@@ -1,33 +1,33 @@
 import express from 'express';
-import User from '../models/User';
+import Card from '../models/Card';
 
 const router = express.Router();
 module.exports = router;
 
 
 router.route('/').get((req,res) => {
-  User.find((err,users) => {
+  Card.find((err,cards) => {
     if (err)
       console.log(err);
     else
-      res.json(users);
+      res.json(cards);
   });
 });
 
 router.route('/:id').get((req,res) => {
-  User.findById(req.params.id, (err,user) => {
+  Card.findById(req.params.id, (err,card) => {
     if (err)
       console.log(err);
     else{
-      res.json(user);
+      res.json(card);
     }
   });
 });
 
 router.route('/add').post((req,res) => {
-  let user = new User(req.body);
-  user.save().then(user => {
-      res.status(200).json({'user': 'Added successfully'});
+  let card = new Card(req.body);
+  card.save().then(card => {
+      res.status(200).json({'card': 'Added successfully'});
     })
     .catch(err => {
       res.status(400).send('Failed to create a new record');
@@ -35,14 +35,15 @@ router.route('/add').post((req,res) => {
 });
 
 router.route('/update/:id').post((req,res) => {
-  User.findById(req.params.id, (err, user) => {
-    if (!user)
+  Card.findById(req.params.id, (err, card) => {
+    if (!card)
       return next(new Error('Could not load document'));
     else{
-      user.name = req.body.name;
-      user.email = req.body.email;
+      card.collection = req.body.collection;
+      card.front = req.body.front;
+      card.back = req.body.back;
 
-      user.save().then(user => {
+      card.save().then(card => {
         res.json('Update done');
       }).catch(err => {
         res.status(400).send('Update failed');
@@ -53,11 +54,21 @@ router.route('/update/:id').post((req,res) => {
 });
 
 router.route('/delete/:id').get((req,res) => {
-  User.findByIdAndRemove({_id: req.params.id}, (err,user) =>{
+  Card.findByIdAndRemove({_id: req.params.id}, (err,card) =>{
     if (err)
       res.json(err);
     else{
       res.json('Deleted successfully');
+    }
+  });
+});
+
+router.route('/cardscollection/:collectionId').get((req, res) => {
+  Card.find({its_collection: req.params.collectionId}, (err, cards) => {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(cards);
     }
   });
 });

@@ -61,3 +61,13 @@ router.route('/delete/:id').get((req,res) => {
     }
   });
 });
+
+router.route('/collectioncreator/:creatorId').get((req, res) => {
+  Collection.find({creator: req.params.creatorId}, (err, collections) => {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(collections);
+    }
+  });
+});
