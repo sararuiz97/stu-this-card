@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '../../services/collection/collection.service';
-import { Collection } from '../../services/collection/collection.mymodel';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 

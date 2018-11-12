@@ -31,8 +31,6 @@ export class DashboardComponent implements OnInit {
   this.service.getCardsByCollection(this.currCollection.id)
     .subscribe((data: Card[]) => {
       this.cards = data;
-      console.log('Data requested ...');
-      console.log(this.cards);
     });
 }
 
