@@ -27,7 +27,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('users/profile', {headers: headers})
+    return this.http.get(`${this.uri}/profile`, {headers: headers})
       .pipe(map(res => res.json()));
   }
 

@@ -4,7 +4,7 @@ import { CardComponent } from '../card/card.component';
 import { Store } from '@ngrx/store';
 import { Collection } from '../../models/collection.model';
 import { AppState } from '../../app.state';
-
+import { Card } from '../../services/card/card.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +28,17 @@ export class DashboardComponent implements OnInit {
       this.cards = card;
     });
   }
+
+  fetchCards() {
+  this.service
+    .getCards()
+    .subscribe((data: Card[]) => {
+      this.cards = data;
+      console.log('Data requested ...');
+      console.log(this.cards);
+    });
+}
+
 
   flipCard(i) {
     const arr = this.mc.toArray();

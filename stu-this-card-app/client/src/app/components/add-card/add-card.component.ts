@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CardService } from '../../services/card/card.service';
 
 @Component({
@@ -7,13 +9,25 @@ import { CardService } from '../../services/card/card.service';
   styleUrls: ['./add-card.component.css']
 })
 export class AddCardComponent implements OnInit {
-  constructor(private service: CardService) {}
+  front: String;
+  back: String;
+  createForm: FormGroup;
+
+  constructor(private router: Router, private service: CardService, private fb: FormBuilder) {
+    this.createForm = this.fb.group({
+          front: '',
+          back: ''
+        });
+  }
 
   ngOnInit() {
   }
 
-  addNewCard(f, b) {
-    // this.service.addCard(f, b);
+
+  onSubmitCard(front, back) {
+    this.service.addCard(front, back).subscribe(() => {
+      this.router.navigate(['/dashboard']);
+    });
   }
 
 }

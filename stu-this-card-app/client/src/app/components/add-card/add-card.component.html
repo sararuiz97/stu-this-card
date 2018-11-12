@@ -1,45 +1,26 @@
 <div class="container">
-    <app-card #login_card>
-      <div front>
-        <div class="text">
-          
-          <form (submit)="addNewCard($event, frontext.value, backtext.value)">
-            <h3> Add front text: </h3>
-            <input
-            class="w3-input"
-            type="text"
-            name="frontext"
-            placeholder="A name, a concept, a year, etc.">
-            <br />
-            <h3>Add Back text:</h3>
-            <input
-            class="w3-input"
-            type="text"
-            name="backtext"
-            placeholder="A translation, a description, a definition, etc.">
-            <br/>
-            <input type="submit" class="btn btn-outline-info" value="Add!">
-          </form>
-          
-        </div>
+  <app-card #login_card>
+    <div front>
+      <div class="text">
+        <br>
+        <h2 class="page-header">Add Card</h2>
+        <form class="register--form" [formGroup]="createForm">
+          <div class="form-group">
+            <label for="name">Front text</label><br>
+            <input type="text" formControlName="front" #front class="login-input">
+          </div>
+          <div class="form-group">
+            <label for="username">Back text</label><br>
+            <input type="text" formControlName="back" #back class="login-input">
+          </div>
+          <button class="btn btn-outline-info button" type="submit" ngbButton (click)="onSubmitCard(front.value, back.value)">
+            Add card
+          </button>
+        </form>
+
       </div>
+    </div>
+  </app-card>
 
-      <!-- -->
 
-      <div back style="margin-top: 10px;">
-        <div class="text">
-          
-          
-          <br>
-        </div>
-      </div>
-    </app-card>
-    <!-- <button ngbButton (click)="flipCard()">
-      Flip
-    </button> -->
-
-    <!-- <button ngbButton (click)="addCard()">
-      Add!
-    </button> -->
-  </div>
-  
+</div>
