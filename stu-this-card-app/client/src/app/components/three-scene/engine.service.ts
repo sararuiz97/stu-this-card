@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -31,14 +31,13 @@ export class EngineService {
     }
   }
 
-  createScene(elementId: any): void {
+  createScene(my_canvas: ElementRef): void {
     // The first step is to get the reference of the canvas element from our HTML document
-    this.canvas = <HTMLCanvasElement>document.getElementById(elementId);
+    this.canvas = my_canvas.nativeElement;
     this.recalculateWindow();
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      alpha: true,    // transparent background
       antialias: true // smooth edges
     });
     this.renderer.setSize(this.windowx, this.windowy);

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { EngineService } from './engine.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
@@ -9,7 +9,8 @@ import { AppState } from '../../app.state';
   styleUrls: ['./three-scene.component.css']
 })
 export class ThreeSceneComponent implements OnInit, AfterViewInit {
-  private canEleId = 'renderCanvas';
+  // private canEleId = 'renderCanvas';
+  @ViewChild('renderCanvas') canvas: ElementRef;
   model: String;
 
   constructor(private engServ: EngineService, private store: Store<AppState>) {
@@ -24,7 +25,7 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.engServ.cleanScene();
     this.engServ.setModelToRender(this.model);
-    this.engServ.createScene(this.canEleId);
+    this.engServ.createScene(this.canvas);
     this.engServ.animate();
   }
 }
