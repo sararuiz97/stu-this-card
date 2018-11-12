@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CardService } from '../../services/card/card.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.state';
+import { Collection } from 'src/app/models/collection.model';
 
 @Component({
   selector: 'app-add-card',
@@ -12,12 +15,19 @@ export class AddCardComponent implements OnInit {
   front: String;
   back: String;
   createForm: FormGroup;
+  currCollection: Collection;
 
-  constructor(private router: Router, private service: CardService, private fb: FormBuilder) {
+  constructor(private router: Router,
+    private service: CardService,
+    private fb: FormBuilder,
+    private store: Store<AppState>) {
     this.createForm = this.fb.group({
-          front: '',
-          back: ''
-        });
+      front: '',
+      back: ''
+    });
+    this.store.select('collection').forEach(el => {
+      this.currCollection = el;
+    });
   }
 
   ngOnInit() {
@@ -25,7 +35,7 @@ export class AddCardComponent implements OnInit {
 
 
   onSubmitCard(front, back) {
-    this.service.addCard(front, back).subscribe(() => {
+    this.service.addCard(front, back, this.currCollection.id).subscribe(() => {
       this.router.navigate(['/dashboard']);
     });
   }

@@ -13,7 +13,7 @@ import { Card } from '../../services/card/card.model';
 })
 export class DashboardComponent implements OnInit {
 
-  cards: Object = [];
+  cards: Card[];
   @ViewChildren(CardComponent) mc: QueryList<CardComponent>;
   currCollection: Collection;
 
@@ -24,14 +24,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getCardsByCollection(this.currCollection.id).forEach(card => {
-      this.cards = card;
-    });
+    this.fetchCards();
   }
 
   fetchCards() {
-  this.service
-    .getCards()
+  this.service.getCardsByCollection(this.currCollection.id)
     .subscribe((data: Card[]) => {
       this.cards = data;
       console.log('Data requested ...');
