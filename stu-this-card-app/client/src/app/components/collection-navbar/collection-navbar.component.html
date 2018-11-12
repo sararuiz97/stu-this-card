@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div *ngIf="user">
+      <a class="navbar-brand" [routerLink]="['/dashboard']">{{user.username}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/collections']">Collections<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngIf="authService.loggedIn()">
+          <a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.loggedIn()">
+          <a class="btn btn-outline-info button" ngbButton [routerLink]="['/addCollection']">
+            Add Collection
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-info">Quiz</button>
+      </form>
+    </div>
+  </nav>
+  

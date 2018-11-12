@@ -25,6 +25,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/collection.reducer';
 import { AddCollectionComponent } from './components/add-collection/add-collection.component';
+import { CollectionNavbarComponent } from './components/collection-navbar/collection-navbar.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,7 @@ const routes: Routes = [
     AddCardComponent,
     CollectionsComponent,
     AddCollectionComponent,
+    CollectionNavbarComponent,
   ],
   imports: [
     BrowserModule,
