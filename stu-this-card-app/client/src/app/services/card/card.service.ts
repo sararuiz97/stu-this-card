@@ -19,8 +19,12 @@ export class CardService {
 
   addCard(front, back) {
     const card = {
-      front: front,
-      back: back
+      front: {
+        text: front,
+      },
+      back: {
+        text: back,
+      }
     };
     return this.http.post(`${this.uri}/add`, card);
   }

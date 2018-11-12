@@ -1,0 +1,26 @@
+<div class="container">
+  <app-card #login_card>
+    <div front>
+      <div class="text">
+        <br>
+        <h2 class="page-header">Add Card</h2>
+        <form class="register--form" [formGroup]="createForm">
+          <div class="form-group">
+            <label for="name">Front text</label><br>
+            <input type="text" formControlName="front" #front class="login-input">
+          </div>
+          <div class="form-group">
+            <label for="username">Back text</label><br>
+            <input type="text" formControlName="back" #back class="login-input">
+          </div>
+          <button class="btn btn-outline-info button" type="submit" ngbButton (click)="onSubmitCard(front.value, back.value)">
+            Add card
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </app-card>
+
+
+</div>

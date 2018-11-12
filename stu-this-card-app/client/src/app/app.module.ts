@@ -14,13 +14,14 @@ import { CollectionService } from './services/collection/collection.service';
 import { WebglDashboardComponent } from './components/webgl-dashboard/webgl-dashboard.component';
 import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
 import { CardViewComponent } from './components/card-view/card-view.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ValidateService } from './services/validate/validate.service';
 import { AuthService } from './services/auth/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: MainComponent,
     canActivate:[AuthGuard]
+  },
+  {
+    path: 'addcard',
+    component: AddCardComponent
   },
   {
     path: 'login',
@@ -54,13 +59,15 @@ const routes: Routes = [
     WebglDashboardComponent,
     ThreeSceneComponent,
     CardViewComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     FlashMessagesModule.forRoot()
   ],
