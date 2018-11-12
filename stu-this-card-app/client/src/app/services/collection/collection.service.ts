@@ -17,10 +17,9 @@ export class CollectionService {
     return this.http.get(`${this.uri}/${id}`);
   }
 
-  addCollection(name, creator) {
+  addCollection(name) {
     const collection = {
       name: name,
-      creator: creator
     };
     return this.http.post(`${this.uri}/add`, collection);
   }

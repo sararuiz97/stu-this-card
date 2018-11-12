@@ -24,6 +24,7 @@ import { AddCardComponent } from './components/add-card/add-card.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/collection.reducer';
+import { AddCollectionComponent } from './components/add-collection/add-collection.component';
 
 const routes: Routes = [
   {
@@ -56,8 +57,12 @@ const routes: Routes = [
     component: AddCardComponent,
   },
   {
+    path: 'addCollection',
+    component: AddCollectionComponent,
+  },
+  {
     path: '',
-    redirectTo: '/collections',
+    redirectTo: '',
     pathMatch: 'full'
   },
 ];
@@ -77,6 +82,7 @@ const routes: Routes = [
     RegisterComponent,
     AddCardComponent,
     CollectionsComponent,
+    AddCollectionComponent,
   ],
   imports: [
     BrowserModule,

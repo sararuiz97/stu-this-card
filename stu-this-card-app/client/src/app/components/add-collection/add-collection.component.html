@@ -1,0 +1,21 @@
+<div class="container">
+  <app-card #login_card>
+    <div front>
+      <div class="text">
+        <br>
+        <h2 class="page-header">Add Card</h2>
+        <form class="register--form" [formGroup]="createForm">
+          <div class="form-group">
+            <label for="name">Name</label><br>
+            <input type="text" formControlName="name" #name class="login-input">
+          </div>
+          <button class="btn btn-outline-info button" type="submit" ngbButton (click)="addNewCollection(name.value)">
+            Add Collection
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </app-card>
+</div>
+  

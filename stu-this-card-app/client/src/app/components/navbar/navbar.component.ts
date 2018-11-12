@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-user:Object;
+user: Object;
   constructor(
     private authService: AuthService,
     private router: Router
@@ -23,7 +23,6 @@ user:Object;
        console.log(err);
        return false;
      });
-     
   }
 
 
