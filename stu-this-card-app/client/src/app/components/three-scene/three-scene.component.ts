@@ -11,7 +11,7 @@ import { AppState } from '../../app.state';
 export class ThreeSceneComponent implements OnInit, AfterViewInit {
   // private canEleId = 'renderCanvas';
   @ViewChild('renderCanvas') canvas: ElementRef;
-  model: String;
+  model: String = 'ddddd';
 
   constructor(private engServ: EngineService, private store: Store<AppState>) {
     this.store.select('collection').forEach(el => {
@@ -23,9 +23,11 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.engServ.cleanScene();
-    this.engServ.setModelToRender(this.model);
-    this.engServ.createScene(this.canvas);
-    this.engServ.animate();
+    if (this.model !== 'ddddd') {
+      this.engServ.cleanScene();
+      this.engServ.setModelToRender(this.model);
+      this.engServ.createScene(this.canvas);
+      this.engServ.animate();
+    }
   }
 }
