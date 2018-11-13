@@ -8,6 +8,28 @@ Our objective is to provide a tool for all students looking for a simple and eff
 ## Project Scope
 Students will be able to create study cards and group them. The app will be able to create a quiz based on a group of cards, students will be able to upload images to their cards, the app will have a 3D graphics section so students can quiz themselves using 3D graphics. 
 
+## Project Scope
+Dependencies:
+* Node v8.12.0 or greater
+* Angular v6.1.7
+* Angular CLI: v6.2.1 or greater
+* MongoDB
+
+## How To Run:
+1. Download this repo.
+2. In a terminal start the Mongo service
+3. In a terminal got to the server folder at: `stu-this-card/stu-this-card-app/server`
+4. Run `npm i`
+6. Run the server with `npm run dev`
+7. In a terminal go to the client foder at: `stu-this-card/stu-this-card-app/client`
+8. Run `npm i`
+9. Run the client service with `ng serve -o`
+10. A browser window will open with the app Running.
+<br>
+(You can only create Collections with no 3D graphics or Collections with 3D shapes, If you want to create collections with the DNA model or Atom model you will need aditional steps).
+
+
+
 ## DB Schema
 ````
 [
