@@ -26,6 +26,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/collection.reducer';
 import { AddCollectionComponent } from './components/add-collection/add-collection.component';
 import { CollectionNavbarComponent } from './components/collection-navbar/collection-navbar.component';
+import { QuizViewComponent } from './components/quiz-view/quiz-view.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
     component: AddCollectionComponent,
   },
   {
+    path: 'quiz',
+    component: QuizViewComponent,
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'
@@ -85,6 +90,7 @@ const routes: Routes = [
     CollectionsComponent,
     AddCollectionComponent,
     CollectionNavbarComponent,
+    QuizViewComponent,
   ],
   imports: [
     BrowserModule,

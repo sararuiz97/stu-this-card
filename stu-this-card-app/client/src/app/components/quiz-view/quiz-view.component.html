@@ -1,0 +1,23 @@
+<div>
+  <div class="quizcontrol">
+    <button (click)="this.changeDisplayedCard()"> next </button>
+  </div>
+  
+  <div class="container">
+      <app-card #currentCard>
+        <div front>
+          <div class="text">
+            {{ this.cards[this.displayedCard].back.text }}
+          </div>
+        </div> 
+        <div back style="margin-top: 10px;">
+          <div class="text">
+            {{ this.cards[this.displayedCard].front.text }}
+          </div>
+        </div>
+      </app-card>
+  </div>
+  
+</div>
+
+  
