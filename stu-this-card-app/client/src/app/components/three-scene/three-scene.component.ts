@@ -23,11 +23,11 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (this.model !== 'ddddd') {
-      this.engServ.cleanScene();
+    this.engServ.cleanScene();
+    setTimeout( () => {
       this.engServ.setModelToRender(this.model);
       this.engServ.createScene(this.canvas);
       this.engServ.animate();
-    }
+    }, 10);
   }
 }
