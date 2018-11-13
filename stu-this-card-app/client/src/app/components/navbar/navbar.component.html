@@ -17,9 +17,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <div *ngIf="authService.loggedIn()">
-        <button class="btn btn-outline-info" ngbButton [routerLink]="['/quiz']">Quiz</button>
-      </div>
+      <button class="btn btn-outline-info">Quiz</button>
     </form>
   </div>
 </nav>

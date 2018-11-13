@@ -28,11 +28,11 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchCards() {
-    this.service.getCardsByCollection(this.currCollection.id)
+  this.service.getCardsByCollection(this.currCollection.id)
     .subscribe((data: Card[]) => {
       this.cards = data;
     });
-  }
+}
 
 
   flipCard(i) {
