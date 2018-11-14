@@ -61,6 +61,7 @@ export class EngineService {
     } else {
       this.addModels(this.modelToRender);
     }
+    // this.addShapes();
   }
 
   addCube() {

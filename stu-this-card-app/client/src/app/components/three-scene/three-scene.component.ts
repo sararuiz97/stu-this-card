@@ -24,10 +24,8 @@ export class ThreeSceneComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.engServ.cleanScene();
-    setTimeout( () => {
-      this.engServ.setModelToRender(this.model);
-      this.engServ.createScene(this.canvas);
-      this.engServ.animate();
-    }, 10);
+    this.engServ.setModelToRender(this.model);
+    this.engServ.createScene(this.canvas);
+    this.engServ.animate();
   }
 }
